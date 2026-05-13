@@ -1,13 +1,14 @@
 
-
 def mission_status_into_english(all_missions_lst = None):
     non_bool_missions = []
     for mission in all_missions_lst:
-        if mission['mission_completed']:
-            mission['mission_completed'] = "Completed"
-        else:
-            mission['mission_completed'] = "Not Completed"
-    return all_missions_lst
+        non_bool_missions.append({
+            'mission_name': mission["mission_name"],
+            'level': mission["level"],
+            'mission_completed': "Completed"  if mission["mission_completed"] else "Not Completed"
+        })
+    return non_bool_missions
+
 
 def show_all_missions(all_missions = None):
     for mission in all_missions:
