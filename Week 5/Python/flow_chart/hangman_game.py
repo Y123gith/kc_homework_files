@@ -5,18 +5,22 @@ def initialize_chosen_w(possible_w):
     secret_w = random.choice(possible_w)
     return list(secret_w)
 
+
 def initialize_guessed_w(secret_w,g_word):
     for _ in secret_w:
         g_word.append("_")
 
+
 def game_over(secret_word,g_word,lives_count):
     return secret_word == g_word or lives_count == 0
+
 
 def show_state(lives_count, g_letters, g_word):
     if g_letters:
         print(f"Lives: {lives_count}, Guessed letters: {g_letters }, Guessed_word_state: {g_word}") 
     else:
         print(f"Lives: {lives_count}, Guessed letters:  , Guessed_word_state: {g_word}") 
+
 
 def accept_letter_choice():
     while True:
@@ -30,11 +34,13 @@ def accept_letter_choice():
             print("it must be a [single] letter")
             continue
 
+
 # The function is used by "correct_guess"
 def update_guessed_word(letter,guessed_w,secret_w):
     for i,char in enumerate(secret_w):
         if char == letter:
             guessed_w[i] = char
+
 
 def correct_guess(chosen_letter,secret_word,g_letters,g_word):
     global lives
