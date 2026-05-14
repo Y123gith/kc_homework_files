@@ -8,7 +8,6 @@ def initialize_chosen_w(possible_w):
 def initialize_guessed_w(secret_w,g_word):
     for _ in secret_w:
         g_word.append("_")
-    return
 
 def game_over(secret_word,g_word,lives_count):
     return secret_word == g_word or lives_count == 0
@@ -36,7 +35,6 @@ def update_guessed_word(letter,guessed_w,secret_w):
     for i,char in enumerate(secret_w):
         if char == letter:
             guessed_w[i] = char
-    return
 
 def correct_guess(chosen_letter,secret_word,g_letters,g_word):
     global lives
@@ -45,7 +43,6 @@ def correct_guess(chosen_letter,secret_word,g_letters,g_word):
     else:
         lives -= 1
         g_letters.add(chosen_letter)
-    return
 
 possible_words = ["hello", "world","he", "indespensable", "rut", "hangman","over"]
 chosen_word = []
