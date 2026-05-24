@@ -1,14 +1,7 @@
 import data, duty_manager, soldier_manager, utils
 def show_menu() -> None:
     """
-    מציגה את התפריט הראשי למשתמש.
-    
-    מקבלת: כלום
-    מחזירה: כלום (מדפיסה לקונסול)
-    
-    למה הפונקציה קיימת:
-    הפרדה בין הצגת התפריט לבין הלוגיקה העסקית.
-    אם נרצה לשנות את התצוגה, נשנה רק כאן.
+    the func prints the differnt options to the user
     """
     print("You Have The Following Options:", "1) Add A New Solder",
            "2) Remove A Soldier",
@@ -23,14 +16,7 @@ def show_menu() -> None:
 
 def get_user_choice() -> str:
     """
-    מקבלת בחירה מהמשתמש.
-    
-    מקבלת: כלום
-    מחזירה: מחרוזת המייצגת את בחירת המשתמש
-    
-    למה הפונקציה קיימת:
-    הפרדת קבלת קלט מהמשתמש מהלוגיקה של עיבוד הבחירה.
-    מאפשר להחליף את שיטת הקלט בעתיד (למשל, GUI).
+    the func gets from the user his choice and does not end until the user's choice is a valid one
     """
     while True:
         try:
@@ -44,16 +30,7 @@ def get_user_choice() -> str:
 
 def handle_add_soldier() -> None:
     """
-    מטפלת בתהליך הוספת חייל חדש.
-    מקבלת קלט מהמשתמש וקוראת לפונקציות המתאימות.
-    
-    מקבלת: כלום
-    מחזירה: כלום
-    
-    למה הפונקציה קיימת:
-    מפרידה בין הקלט/פלט לבין הלוגיקה העסקית.
-    main.py אחראי על אינטראקציה עם המשתמש,
-    soldier_manager.py אחראי על הלוגיקה.
+    the func adds soldiers to the system (list of all soldiers)
     """
     try:
         new_soldier_id = int(input("Please enter the id of the new soldier: "))
@@ -66,14 +43,7 @@ def handle_add_soldier() -> None:
 
 def handle_remove_soldier() -> None:
     """
-    מטפלת בתהליך הסרת חייל.
-    מקבלת קלט מהמשתמש וקוראת לפונקציות המתאימות.
-    
-    מקבלת: כלום
-    מחזירה: כלום
-    
-    למה הפונקציה קיימת:
-    הפרדה בין UI לבין לוגיקה עסקית.
+    the func removes soldiers from the system (list of all soldiers)
     """
     try:
        soldier_for_removal_id = int(input("Please enter the id of the soldier you want to remove: "))
@@ -87,14 +57,7 @@ def handle_remove_soldier() -> None:
 
 def handle_view_soldiers() -> None:
     """
-    מטפלת בתהליך הצגת כל החיילים.
-    קוראת לפונקציה המתאימה ומציגה את התוצאה.
-    
-    מקבלת: כלום
-    מחזירה: כלום
-    
-    למה הפונקציה קיימת:
-    הפרדה בין קבלת הנתונים לבין הצגתם.
+    the func prints every soldier and thier details from the list of all soldiers (list)
     """
     for soldier in soldier_manager.get_all_soldiers():
         print(soldier)
@@ -102,14 +65,7 @@ def handle_view_soldiers() -> None:
 
 def handle_add_duty() -> None:
     """
-    מטפלת בתהליך הוספת תורנות לחייל.
-    מקבלת קלט מהמשתמש וקוראת לפונקציות המתאימות.
-    
-    מקבלת: כלום
-    מחזירה: כלום
-    
-    למה הפונקציה קיימת:
-    הפרדה בין UI לבין לוגיקה עסקית.
+    the func adds a duty to the soldier
     """
     try:
         soldier_id_duty = int(input("Please enter the id of the soldier you want to add a duty to: "))
@@ -124,14 +80,7 @@ def handle_add_duty() -> None:
 
 def handle_update_duty_status() -> None:
     """
-    מטפלת בתהליך עדכון סטטוס תורנות.
-    מקבלת קלט מהמשתמש וקוראת לפונקציות המתאימות.
-    
-    מקבלת: כלום
-    מחזירה: כלום
-    
-    למה הפונקציה קיימת:
-    הפרדה בין UI לבין לוגיקה עסקית.
+    the func updates a soldiers duty status
     """
     try:
         soldier_id_duty = int(input("Please enter the id of the soldier you want to update the duty status to: "))
@@ -145,14 +94,7 @@ def handle_update_duty_status() -> None:
 
 def handle_view_soldier_duties() -> None:
     """
-    מטפלת בתהליך הצגת תורנויות של חייל.
-    מקבלת קלט מהמשתמש וקוראת לפונקציות המתאימות.
-    
-    מקבלת: כלום
-    מחזירה: כלום
-    
-    למה הפונקציה קיימת:
-    הפרדה בין UI לבין לוגיקה עסקית.
+    the func prints the soldiers list of duties (with their info)
     """
     try:
         soldier_id_duties = int(input("Please enter the id of the soldier you want to view the duties status: "))
@@ -165,14 +107,7 @@ def handle_view_soldier_duties() -> None:
 
 def main() -> None:
     """
-    הפונקציה הראשית של התוכנית.
-    מריצה לולאה ראשית שמציגה תפריט, מקבלת בחירה ומפעילה פעולה.
-    
-    מקבלת: כלום
-    מחזירה: כלום
-    
-    למה הפונקציה קיימת:
-    נקודת הכניסה לתוכנית. מנהלת את הזרימה הראשית.
+    the func calls the func to present to possible choices and gets the users choice and executes accordingly
     """
     while True:
         show_menu()
