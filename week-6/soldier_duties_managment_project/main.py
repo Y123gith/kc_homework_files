@@ -1,4 +1,4 @@
-import data, duty_manager, soldier_manager, utils, sys
+import data, duty_manager, soldier_manager, utils
 def show_menu() -> None:
     """
     מציגה את התפריט הראשי למשתמש.
@@ -136,7 +136,7 @@ def handle_update_duty_status() -> None:
     try:
         soldier_id_duty = int(input("Please enter the id of the soldier you want to update the duty status to: "))
         duty_name = input("Please enter the name of the duty: ")
-        new_status = input("Please enter the new status")
+        new_status = input("Please enter the new status: ")
         duty_manager.update_duty_status(soldier_id_duty, duty_name, new_status)
     except ValueError:
         print("Either Id is not an integer or new duty is invalid")
@@ -156,7 +156,7 @@ def handle_view_soldier_duties() -> None:
     """
     try:
         soldier_id_duties = int(input("Please enter the id of the soldier you want to view the duties status: "))
-        duty_manager.get_soldier_duties(soldier_id_duties)
+        print(duty_manager.get_soldier_duties(soldier_id_duties))
     except ValueError:
         print("Id is not an integer")
     except KeyError:
@@ -189,8 +189,9 @@ def main() -> None:
             case '5':
                 handle_update_duty_status()
             case '6':
-                handle_update_duty_status()
+                handle_view_soldier_duties()
             case '7':
-                sys.exit()
+                exit("GoodBye")
 
-main()
+if __name__ == "__main__":
+    main()

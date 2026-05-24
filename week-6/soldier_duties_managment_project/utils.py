@@ -74,8 +74,9 @@ def is_valid_status(status: str) -> bool:
     גם מקל על שינוי הסטטוסים החוקיים בעתיד.
     פונקציות validation מחזירות bool ולא זורקות exceptions.
     """
+    status = status.lower()
     valid_status = ["pending","completed","missed"]
-    if status.lower in valid_status:
+    if status in valid_status:
         return True
     return False
 
@@ -127,11 +128,17 @@ def soldier_has_duty(soldier: dict, duty_name: str) -> bool:
     הפרדה של הלוגיקה למקום אחד.
     פונקציות validation מחזירות bool ולא זורקות exceptions.
     """
+    ### original ###
+    # duty_lst = soldier.get("duties")
+    # if duty_name in duty_lst:
+    #     return True
+    # return False
+    ### new ###
     duty_lst = soldier.get("duties")
-    if duty_name in duty_lst:
-        return True
+    for duty_d in duty_lst:
+        if duty_name in duty_d.values():
+            return True
     return False
-
 
 def is_valid_day(day: str) -> bool:
     """
@@ -154,7 +161,8 @@ def is_valid_day(day: str) -> bool:
     בעתיד אפשר לשנות את הימים החוקיים במקום אחד.
     פונקציות validation מחזירות bool ולא זורקות exceptions.
     """
+    day = day.lower()
     valid_days = ["sunday","monday","tuesday","wedensday","thursday"]
-    if day.lower in valid_days:
+    if day in valid_days:
         return True
     return False

@@ -99,4 +99,4 @@ def get_soldier_duties(soldier_id: int) -> list:
     soldier_d = utils.find_soldier_by_id(soldier_id)
     if not soldier_d:
         raise KeyError
-    return soldier_d.get("duties")
+    return soldier_d["duties"]
