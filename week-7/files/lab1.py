@@ -1,3 +1,6 @@
+import os
+
+# 1
 def create_diary():
     with open("diary.txt", "w", encoding="utf-8") as file:
         file.write("2024-01-15: היה יום עמוס\n")
@@ -8,6 +11,8 @@ def create_diary():
         for line in file:
             print(line)
 
+
+# 2
 def add_entry(filename, date, content):
     with open("diary.txt", "a", encoding="utf-8") as file:
         file.write(filename + date + content)
@@ -19,6 +24,8 @@ def add_entry(filename, date, content):
 create_diary()
 add_entry("txt.diary","2024-01-18","! יום נפלא — סיימתי תרגיל 1")
 
+
+# 3
 def search_diary(filename, keyword):
     new_lst = []
     with open(filename, "r", encoding="utf-8") as file:
