@@ -13,9 +13,7 @@ class Shape():
     def __repr__(self):
         return f"Type:{type(self)}"
 
-def __setattr__(self, name, value):
-    if not value > 0:
-        raise ValueError("Value must be positive")
-    if not isinstance(value,int|float): 
-        raise ValueError("values must be numbers")
-    super().__setattr__(name,value)
+    def __setattr__(self, name, value):
+        if not isinstance(value,int|float) or not value > 0:
+            raise ValueError("values must be numbers")
+        super().__setattr__(name,value)
